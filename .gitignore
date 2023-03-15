@@ -1,1 +1,12 @@
 *.pyc
+classroom/renders/test/annotations/*
+classroom/renders/test/images/*
+classroom/renders/train/images/*
+classroom/renders/train/annotations/*
+classroom/renders/validation/annotations/*
+classroom/renders/validation/images/*
+classroom/renders/test/labels.json
+classroom/renders/train/labels.json
+classroom/renders/validation/labels.json
+classroom/assets/random objects/
+classroom/random_spawn.blend1

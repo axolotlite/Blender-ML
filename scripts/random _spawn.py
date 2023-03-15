@@ -387,6 +387,7 @@ def get_raycast_percentage(cam, obj, cutoff):
         count += 1
         # Get the 2D projection of the vertex
         co2D = world_to_camera_view( scene, cam, v )
+        depsgraph = bpy.context.evaluated_depsgraph_get()
 
         # By default, deselect it
         obj.data.vertices[i].select = False
@@ -394,7 +395,7 @@ def get_raycast_percentage(cam, obj, cutoff):
         # If inside the camera view
         if 0.0 <= co2D.x <= 1.0 and 0.0 <= co2D.y <= 1.0: 
             # Try a ray cast, in order to test the vertex visibility from the camera
-            location, normal, index, distance, t, ty = scene.ray_cast(viewlayer, cam.location, (v - cam.location).normalized() )
+            location, normal, index, distance, t, ty = scene.ray_cast(despgraph, cam.location, (v - cam.location).normalized() )
             t = (v-normal).length
             if t < 0.000008:
                 same_count += 1
